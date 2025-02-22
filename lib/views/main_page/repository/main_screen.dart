@@ -6,7 +6,7 @@ import 'package:todo_lesson/views/main_page/controller/nav_bar_controller.dart';
 class MainScreen extends StatelessWidget {
   MainScreen({super.key});
   ButtomNavBarController controller = ButtomNavBarController();
-  static const List<Widget> _widgetOptions = <Widget>[
+  static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     Text('Index 1: Business', style: optionStyle),
     Text('Index 2: School', style: optionStyle),
@@ -17,28 +17,12 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            title: Text(
-              "Aman Amanow",
-            ),
-            leading: Icon(
-              Icons.person,
-            ),
-            bottom:
-                PreferredSize(preferredSize: Size(50, 50), child: TextField()),
-          ),
-          SliverToBoxAdapter(
-            child: Center(
-              child: Observer(
-                builder: (context) =>
-                    _widgetOptions.elementAt(controller.selectedIndex),
-              ),
-            ),
-          ),
-        ],
-      ),
+      body: Observer(builder: (_) {
+        return IndexedStack(
+          index: controller.selectedIndex,
+          children: _widgetOptions,
+        );
+      }),
       bottomNavigationBar: Observer(
         builder: (context) => BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
