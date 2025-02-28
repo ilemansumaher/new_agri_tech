@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:todo_lesson/views/home_page/repository/home_screen.dart';
 import 'package:todo_lesson/views/main_page/controller/nav_bar_controller.dart';
+import 'package:todo_lesson/views/send_page/repository/send_scree.dart';
 
 class MainScreen extends StatelessWidget {
   MainScreen({super.key});
   ButtomNavBarController controller = ButtomNavBarController();
   static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    Text('Index 1: Business', style: optionStyle),
+    SendScreen(),
     Text('Index 2: School', style: optionStyle),
     Text('Index 2: School', style: optionStyle),
   ];
@@ -37,7 +38,7 @@ class MainScreen extends StatelessWidget {
                 icon: Icon(Icons.wysiwyg_outlined), label: 'Learn'),
           ],
           currentIndex: controller.selectedIndex,
-          selectedItemColor: Colors.amber[800],
+          selectedItemColor: Colors.green,
           onTap: controller.onItemTapped,
           unselectedItemColor: Colors.black45,
         ),

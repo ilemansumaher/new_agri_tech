@@ -21,7 +21,14 @@ class CustomAppBar extends StatelessWidget {
           SizedBox(
             width: 8,
           ),
-          Text("Aman Amanow"),
+          Text(
+            "Aman Amanow",
+            style: TextStyle(
+              color: Colors.green,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ],
       ),
       bottom: PreferredSize(
@@ -30,6 +37,8 @@ class CustomAppBar extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15.0),
           child: TextField(
             decoration: InputDecoration(
+              prefixIcon: Icon(Icons.search),
+              hintText: "Search",
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.0),
               ),
@@ -44,7 +53,7 @@ class CustomAppBar extends StatelessWidget {
             end: Alignment.bottomCenter,
             colors: [
               Colors.green.shade200,
-              Colors.green.shade100,
+              Colors.green.shade50,
               Colors.white,
             ],
           ),
