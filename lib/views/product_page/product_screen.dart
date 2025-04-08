@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_lesson/views/more_product_page/repository/more_product_screen.dart';
 import 'package:todo_lesson/widget/product_card.dart';
 
 class ProductScreen extends StatelessWidget {
@@ -43,14 +44,21 @@ class ProductScreen extends StatelessWidget {
             padding: EdgeInsets.all(10.0),
             sliver: SliverGrid.builder(
               itemCount: 10,
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisSpacing: 5,
-                    mainAxisSpacing: 10,
-                    childAspectRatio: 0.95,
-                    crossAxisCount: 2),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisSpacing: 5,
+                  mainAxisSpacing: 10,
+                  childAspectRatio: 0.95,
+                  crossAxisCount: 2),
               itemBuilder: (context, index) {
-                return ProductCard();
+                return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MoreProductScreen(),
+                          ));
+                    },
+                    child: ProductCard());
               },
             ),
           )
