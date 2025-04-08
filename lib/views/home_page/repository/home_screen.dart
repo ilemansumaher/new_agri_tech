@@ -16,7 +16,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      
       slivers: [
         CustomAppBar(),
         SliverGrid.builder(
@@ -25,8 +24,7 @@ class HomeScreen extends StatelessWidget {
           itemCount: 6,
           itemBuilder: (context, index) {
             return CategoryCard(
-              image:
-                  "https://t4.ftcdn.net/jpg/06/05/82/81/360_F_605828148_feogXrlyMcTRRPlAsjXnyir75g015enD.jpg",
+              image: "assets/images/1.jpg",
               nameCategory: "Buy Product",
               color: Colors.white,
             );

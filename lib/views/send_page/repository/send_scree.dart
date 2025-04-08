@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_lesson/views/category_page/repository/category_screen.dart';
 import 'package:todo_lesson/views/product_page/product_screen.dart';
 import 'package:todo_lesson/widget/banner_widget.dart';
 import 'package:todo_lesson/widget/categorys_box.dart';
@@ -50,9 +51,18 @@ class SendScreen extends StatelessWidget {
                   borderRadius: 0,
                   borderSide: 2,
                 ),
-                CategorysBox(
-                  borderRadius: 4,
-                  borderSide: 3,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CategoryScreen(),
+                        ));
+                  },
+                  child: CategorysBox(
+                    borderRadius: 4,
+                    borderSide: 3,
+                  ),
                 ),
               ],
             ),
