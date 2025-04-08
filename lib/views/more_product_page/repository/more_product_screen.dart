@@ -82,6 +82,12 @@ class _MoreProductScreenState extends State<MoreProductScreen> {
           TitleText(
             title: "Sahib Akira Sahib Pesticides Pvt Ltd 500 Milliliter",
           ),
+          Row(
+            children: [
+              TypeProduct(),
+              TypeProduct(),
+            ],
+          )
         ],
       ),
     );
@@ -118,8 +124,59 @@ class TypeProduct extends StatelessWidget {
           color: borderColor,
         ),
         borderRadius: BorderRadius.circular(8.0),
-        
       ),
+      child: Column(
+        children: [
+          HeaderText(headerText: "Pack of 1"),
+          SizeText(sizeText: "1 Liter"),
+          Divider(),
+          PriceText(priceTetx: "450 #")
+        ],
+      ),
+    );
+  }
+}
+
+class HeaderText extends StatelessWidget {
+  HeaderText({super.key, required this.headerText});
+  String headerText;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      headerText,
+      style: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+}
+
+class SizeText extends StatelessWidget {
+  SizeText({super.key, required this.sizeText});
+  String sizeText;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      sizeText,
+      style: TextStyle(
+          fontSize: 16, fontWeight: FontWeight.bold, color: borderColor),
+    );
+  }
+}
+
+class PriceText extends StatelessWidget {
+  PriceText({super.key, required this.priceTetx});
+  String priceTetx;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      priceTetx,
+      style: TextStyle(
+          fontSize: 16, fontWeight: FontWeight.bold, color: priceTextColor),
     );
   }
 }
