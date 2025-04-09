@@ -133,12 +133,15 @@ class MainlyUsedButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(8.0),
         color: mainlyUsedColor,
       ),
-      child: InkWell(
-        onTap: onCklickButton,
-        child: Text(
-          title,
-          style: TextStyle(fontSize: 16, color: mainlyUsedTextButton),
-          textAlign: TextAlign.center,
+      child: Padding(
+        padding: const EdgeInsets.all(6.0),
+        child: InkWell(
+          onTap: onCklickButton,
+          child: Text(
+            title,
+            style: TextStyle(fontSize: 16, color: mainlyUsedTextButton),
+            textAlign: TextAlign.center,
+          ),
         ),
       ),
     );
