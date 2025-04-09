@@ -1,6 +1,9 @@
 import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_lesson/common/common.dart';
+import 'package:todo_lesson/widget/size_text.dart';
+import '../../../widget/count_product.dart';
+import '../../../widget/mainly_used_button.dart';
 import '../../../widget/title_text.dart';
 import 'component/type_product.dart';
 
@@ -21,46 +24,46 @@ class _MoreProductScreenState extends State<MoreProductScreen> {
         backgroundColor: appBarColor,
         title: Text("Sahib Akira Sahib Pesticides Pvt ..."),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              child: CustomScrollView(
-                slivers: [
-                  SliverList(
-                    delegate: SliverChildListDelegate(
-                      [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10.0),
-                          child: CarouselSlider(
-                            items: itemImage.map((image) {
-                              return Container(
-                                width: MediaQuery.of(context).size.width * 0.7,
-                                margin: EdgeInsets.symmetric(horizontal: 5.0),
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage("assets/images/$image"),
-                                    fit: BoxFit.cover,
-                                  ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            child: CustomScrollView(
+              slivers: [
+                SliverList(
+                  delegate: SliverChildListDelegate(
+                    [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10.0),
+                        child: CarouselSlider(
+                          items: itemImage.map((image) {
+                            return Container(
+                              width: MediaQuery.of(context).size.width * 0.7,
+                              margin: EdgeInsets.symmetric(horizontal: 5.0),
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage("assets/images/$image"),
+                                  fit: BoxFit.cover,
                                 ),
-                              );
-                            }).toList(),
-                            options: CarouselOptions(
-                              height: MediaQuery.of(context).size.height * 0.25,
-                              initialPage: _currentIndex,
-                              onPageChanged: (index, reason) {
-                                setState(() {
-                                  _currentIndex = index;
-                                });
-                              },
-                            ),
-                            controller: _controller,
+                              ),
+                            );
+                          }).toList(),
+                          options: CarouselOptions(
+                            height: MediaQuery.of(context).size.height * 0.25,
+                            initialPage: _currentIndex,
+                            onPageChanged: (index, reason) {
+                              setState(() {
+                                _currentIndex = index;
+                              });
+                            },
                           ),
+                          controller: _controller,
                         ),
-                        SizedBox(height: 10),
-                        Row(
+                      ),
+                      SizedBox(height: 10),
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: List.generate(
                             itemImage.length,
@@ -84,16 +87,22 @@ class _MoreProductScreenState extends State<MoreProductScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
-                        Divider(
-                          height: 3,
-                          color: Colors.black,
-                        ),
-                        TitleText(
+                      ),
+                      SizedBox(height: 10),
+                      Divider(
+                        height: 3,
+                        color: Colors.black,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        child: TitleText(
                           title:
                               "Sahib Akira Sahib Pesticides Pvt Ltd 500 Milliliter",
                         ),
-                        Row(
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Row(
                           children: [
                             for (int i = 0; i < 3; i++)
                               TypeProduct(
@@ -105,44 +114,19 @@ class _MoreProductScreenState extends State<MoreProductScreen> {
                                 },
                               ),
                           ],
-                        )
-                      ],
-                    ),
+                        ),
+                      ),
+                      CountProduct(
+                        title: " Quantity",
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            MainlyUsedButton(onCklickButton: () {}, title: "Add to Cart")
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class MainlyUsedButton extends StatelessWidget {
-  MainlyUsedButton(
-      {super.key, required this.onCklickButton, required this.title});
-  String title;
-  var onCklickButton;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(5.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8.0),
-        color: mainlyUsedColor,
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(6.0),
-        child: InkWell(
-          onTap: onCklickButton,
-          child: Text(
-            title,
-            style: TextStyle(fontSize: 16, color: mainlyUsedTextButton),
-            textAlign: TextAlign.center,
           ),
-        ),
+          MainlyUsedButton(onCklickButton: () {}, title: "Add to Cart")
+        ],
       ),
     );
   }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HeaderText extends StatelessWidget {
-  HeaderText({super.key, required this.headerText});
+  FontWeight fontWeight;
+  HeaderText({super.key, required this.headerText , this.fontWeight =FontWeight.bold});
   String headerText;
 
   @override
