@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:todo_lesson/common/common.dart';
 
 class MainlyUsedButton extends StatelessWidget {
-  MainlyUsedButton(
-      {super.key, required this.onCklickButton, required this.title});
+  MainlyUsedButton({
+    super.key,
+    required this.onCklickButton,
+    required this.title,
+  });
   String title;
   var onCklickButton;
   @override

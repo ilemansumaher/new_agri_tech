@@ -25,6 +25,7 @@ class CountProduct extends StatelessWidget {
             ),
           ),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Observer(builder: (_) {
                 return Ink(
@@ -38,7 +39,7 @@ class CountProduct extends StatelessWidget {
                     onTap: _controller.decriment,
                     child: Icon(
                       Icons.remove,
-                      color: mainlyUsedTextButton,
+                      color:_controller.count>=1 ? mainlyUsedTextButton : borderColor,
                     ),
                   ),
                 );
@@ -66,7 +67,8 @@ class CountProduct extends StatelessWidget {
               ),
             ],
           ),
-        )
+        ),
+        Divider(),
       ],
     );
   }

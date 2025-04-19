@@ -1,6 +1,7 @@
 import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_lesson/common/common.dart';
+import 'package:todo_lesson/widget/header_text.dart';
 import 'package:todo_lesson/widget/size_text.dart';
 import '../../../widget/count_product.dart';
 import '../../../widget/mainly_used_button.dart';
@@ -119,13 +120,42 @@ class _MoreProductScreenState extends State<MoreProductScreen> {
                       CountProduct(
                         title: " Quantity",
                       ),
+                      Divider(),
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: HeaderText(headerText: "Product Overview"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        child: Wrap(
+                          children: [
+                            Text(
+                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nibh enim, blandit et efficitur vitae, placerat ac purus. In enim turpis, convallis vitae eros eu, semper tempor mi. Curabitur metus massa, pulvinar vitae risus eu, aliquet gravida nulla. Ut eget neque in urna vehicula mattis. Donec sed quam bibendum, porta mi sit amet, feugiat dolor. Morbi nec lectus tempor, ornare urna sit amet, molestie justo.",
+                              style: TextStyle(
+                                color: borderColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ],
             ),
           ),
-          MainlyUsedButton(onCklickButton: () {}, title: "Add to Cart")
+          Divider(),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              children: [
+                MainlyUsedButton(
+                  onCklickButton: () {},
+                  title: "Add to Cart",
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
